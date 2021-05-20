@@ -1,4 +1,98 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container-fluid">
+  <form
+    class="row g-3"
+    autofocusInvalidInput
+    [formGroup]="contactsForm"
+    #reactiveForm="ngForm"
+    (ngSubmit)="submitContactsForm()"
+  >
+    <div class="col-md-6">
+      <label for="name" id="name" class="col-sm-2 col-form-label">Name</label>
+      <input
+        formControlName="name"
+        class="form-control"
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Enter Name"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="department" class="col-sm-2 col-form-label">Department</label>
+      <input
+        formControlName="department"
+        type="text"
+        name="department"
+        id="department"
+        class="form-control"
+        placeholder="Enter Department"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="eMail" class="col-sm-2 col-form-label">Email</label>
+      <input
+        formControlName="email"
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter email"
+      />
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+
+  <form
+    autofocusInvalidInput
+    class="row g-3"
+    #templateDrivenForm="ngForm"
+    (ngSubmit)="submitContactsForm()"
+  >
+    <div class="col-md-6">
+      <label for="name" id="name" class="col-sm-2 col-form-label">Name</label>
+      <input
+        class="form-control"
+        type="text"
+        required
+        [(ngModel)]="contact.name"
+        #name="ngModel"
+        name="name"
+        id="name"
+        placeholder="Enter Name"
+      />
+      <ng-container >
+      </ng-container>
+    </div>
+    <div class="col-md-6">
+      <label for="department" class="col-sm-2 col-form-label">Department</label>
+      <input
+        type="text"
+        name="department"
+        [(ngModel)]="contact.department"
+        id="department"
+        required
+        class="form-control"
+        placeholder="Enter Department"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="eMail" class="col-sm-2 col-form-label">Email</label>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="contact.email"
+        required
+        id="email"
+        class="form-control"
+        placeholder="Enter email"
+      />
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
